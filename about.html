@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About NCC | National Cadet Corps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--navy-blue);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 90px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Overview Section */
+        .overview {
+            background-color: var(--gray);
+        }
+        
+        .overview-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .overview-text {
+            flex: 1;
+        }
+        
+        .overview-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .overview-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .motto-box {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--saffron);
+            border-right: 5px solid var(--green);
+        }
+        
+        .motto-box h3 {
+            font-size: 1.8rem;
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+        
+        /* Vision & Mission Section */
+        .vision-mission {
+            background-color: var(--white);
+        }
+        
+        .vision-mission-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .vm-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--navy-blue);
+        }
+        
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vm-card i {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* Structure Section */
+        .structure {
+            background-color: var(--light-blue);
+        }
+        
+        .structure-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .org-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 200px;
+            transition: transform 0.3s;
+            border: 2px solid var(--navy-blue);
+        }
+        
+        .org-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .org-item h3 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .org-connector {
+            width: 2px;
+            height: 30px;
+            background-color: var(--navy-blue);
+            margin: 0 auto;
+        }
+        
+        /* Wings Section */
+        .wings {
+            background-color: var(--white);
+        }
+        
+        .wings-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .wing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .wing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .wing-header {
+            padding: 20px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .army-header {
+            background-color: #8B4513;
+        }
+        
+        .navy-header {
+            background-color: var(--navy-blue);
+        }
+        
+        .airforce-header {
+            background-color: #4682B4;
+        }
+        
+        .wing-body {
+            padding: 20px;
+        }
+        
+        .wing-body ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .wing-body ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .wing-body ul li i {
+            color: var(--green);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Role Section */
+        .role {
+            background-color: var(--gray);
+        }
+        
+        .role-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .role-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .role-card i {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--saffron);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .overview-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .org-item {
+                margin-bottom: 20px;
+            }
+            
+            .org-connector {
+                width: 30px;
+                height: 2px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NCC College Unit</h1>
+                    <p>Unity and Discipline</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About NCC</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="enrollment.html">Enrollment</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>About National Cadet Corps</h1>
+            <p>Learn about the history, vision, and structure of India's premier youth organization</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h2>Overview</h2>
+                    <p>The National Cadet Corps (NCC) is the largest youth organization in India. It was established under the National Cadet Corps Act of 1948 and has since grown to become one of the largest uniformed youth organizations in the world.</p>
+                    <p>The NCC aims to develop character, comradeship, discipline, a secular outlook, and the ideals of selfless service among young citizens.</p>
+                    
+                    <div class="motto-box">
+                        <h3>Our Motto</h3>
+                        <p>"Unity and Discipline"</p>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="NCC Cadets">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision & Mission</h2>
+            </div>
+            <div class="vision-mission-content">
+                <div class="vm-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To build a motivated and organized youth leadership that provides the nation with dedicated volunteers in all walks of life and always available for the service of the nation.</p>
+                </div>
+                <div class="vm-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To develop character, comradeship, discipline, leadership, secular outlook, spirit of adventure, and ideals of selfless service amongst the youth of the country.</p>
+                </div>
+                <div class="vm-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>Our Values</h3>
+                    <p>Unity, Discipline, Patriotism, Secularism, Selfless Service, and Leadership are the core values that guide every NCC activity and program.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section class="structure">
+        <div class="container">
+            <div class="section-title">
+                <h2>Organizational Structure</h2>
+            </div>
+            <div class="structure-content">
+                <div class="org-chart">
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h3>Directorate General</h3>
+                            <p>New Delhi</p>
+                        </div>
+                    </div>
+                    <div class="org-connector"></div>
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h3>State Directorate</h3>
+                            <p>State Level</p>
+                        </div>
+                    </div>
+                    <div class="org-connector"></div>
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h3>Group Headquarters</h3>
+                            <p>Regional Level</p>
+                        </div>
+                    </div>
+                    <div class="org-connector"></div>
+                    <div class="org-level">
+                        <div class="org-item">
+                            <h3>Battalion/Unit</h3>
+                            <p>College/Institution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wings Section -->
+    <section class="wings">
+        <div class="container">
+            <div class="section-title">
+                <h2>NCC Structure</h2>
+            </div>
+            <div class="wings-content">
+                <div class="wing-card">
+                    <div class="wing-header army-header">
+                        <h3>Army Wing</h3>
+                    </div>
+                    <div class="wing-body">
+                        <p>Largest wing focusing on ground defense, leadership, and adventure activities.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Weapons Training</li>
+                            <li><i class="fas fa-check"></i> Map Reading</li>
+                            <li><i class="fas fa-check"></i> Field Craft & Battle Craft</li>
+                            <li><i class="fas fa-check"></i> Adventure Activities</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-header navy-header">
+                        <h3>Navy Wing</h3>
+                    </div>
+                    <div class="wing-body">
+                        <p>Specialized in naval training, sailing, and maritime awareness.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Seamanship</li>
+                            <li><i class="fas fa-check"></i> Navigation</li>
+                            <li><i class="fas fa-check"></i> Communication</li>
+                            <li><i class="fas fa-check"></i> Maritime Awareness</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-header airforce-header">
+                        <h3>Air Force Wing</h3>
+                    </div>
+                    <div class="wing-body">
+                        <p>Focuses on aviation, aeromodelling, and air defense awareness.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Principles of Flight</li>
+                            <li><i class="fas fa-check"></i> Aero Modelling</li>
+                            <li><i class="fas fa-check"></i> Air Navigation</li>
+                            <li><i class="fas fa-check"></i> Meteorology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Section -->
+    <section class="role">
+        <div class="container">
+            <div class="section-title">
+                <h2>Role of NCC in Nation Building</h2>
+            </div>
+            <div class="role-content">
+                <div class="role-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Leadership Development</h3>
+                    <p>NCC provides opportunities for cadets to develop leadership qualities through various training programs, camps, and exercises.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Defense Training</h3>
+                    <p>Cadets receive basic military training that instills discipline, patriotism, and a sense of responsibility towards the nation.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Community Service</h3>
+                    <p>NCC cadets actively participate in social service activities, disaster management, and community development programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NCC College Unit</h3>
+                    <p>Developing character, comradeship, discipline, and a spirit of adventure among the youth of our nation.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="enrollment.html">Enrollment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">NCC Official Website</a></li>
+                        <li><a href="#">College Website</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> NCC Unit Office, College Campus</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> nccunit@college.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
