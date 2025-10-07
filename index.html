@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCC College Unit - Unity and Discipline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-gray: #333333;
+            --light-gray: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .college-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .flag-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--saffron) 0%, var(--saffron) 33%, 
+                var(--white) 33%, var(--white) 66%, 
+                var(--green) 66%, var(--green) 100%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .banner-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--navy-blue);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--navy-blue);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--navy-blue);
+        }
+        
+        /* News Ticker */
+        .news-ticker {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        
+        .ticker-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .ticker-label {
+            background-color: var(--saffron);
+            padding: 5px 15px;
+            font-weight: 600;
+            margin-right: 20px;
+        }
+        
+        .ticker-content {
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Welcome Section */
+        .welcome {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+        
+        .welcome-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .welcome-text {
+            flex: 1;
+        }
+        
+        .welcome-video {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .welcome-video iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About NCC */
+        .about-ncc {
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .about-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Our College Unit */
+        .college-unit {
+            background-color: var(--light-blue);
+        }
+        
+        .unit-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .unit-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 3px solid var(--navy-blue);
+        }
+        
+        /* Activities & Events */
+        .activities {
+            background-color: var(--white);
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .activity-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .activity-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .activity-content {
+            padding: 1.5rem;
+            background-color: var(--white);
+        }
+        
+        /* Gallery */
+        .gallery {
+            background-color: var(--light-gray);
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background-color: var(--white);
+            border: 1px solid var(--navy-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            margin-top: 5px;
+        }
+        
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
+            padding: 3rem 0 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--navy-blue);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--saffron);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .banner p {
+                font-size: 1rem;
+            }
+            
+            .quick-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .banner {
+                height: 70vh;
+            }
+            
+            .ticker-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                    <div class="college-name">
+                        <h2>NCC College Unit</h2>
+                        <p>Unity and Discipline</p>
+                    </div>
+                </div>
+                <nav>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About NCC</a></li>
+                        <li><a href="#unit">Our Unit</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner" id="home">
+        <div class="flag-animation"></div>
+        <div class="banner-content">
+            <h1>National Cadet Corps</h1>
+            <p>Unity and Discipline – The Motto of NCC</p>
+            <div class="quick-buttons">
+                <a href="#about" class="btn">About NCC</a>
+                <a href="#enroll" class="btn btn-outline">Enroll Now</a>
+                <a href="#activities" class="btn btn-outline">Events</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Ticker -->
+    <section class="news-ticker">
+        <div class="container">
+            <div class="ticker-container">
+                <div class="ticker-label">Latest News</div>
+                <div class="ticker-content">
+                    Republic Day Camp registrations open | Annual Training Camp scheduled for November 15-25 | Blood Donation Drive on October 2 | NCC Cadets excel in National Shooting Competition
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="container">
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h2>Welcome from the Commanding Officer</h2>
+                    <p>The National Cadet Corps is one of the largest youth organizations in the world. It aims to develop character, comradeship, discipline, a secular outlook, and the ideals of selfless service among young citizens.</p>
+                    <p>Our college NCC unit has been consistently producing disciplined and responsible cadets who have excelled in various fields. I invite all eligible students to join this prestigious organization and be part of this transformative journey.</p>
+                    <p>- Col. R. Sharma, Commanding Officer</p>
+                </div>
+                <div class="welcome-video">
+                    <iframe src="https://www.youtube.com/embed/9xwazD5SyVg" title="NCC Introduction Video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About NCC Section -->
+    <section class="about-ncc" id="about">
+        <div class="container">
+            <h2 class="section-title">About NCC</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <i class="fas fa-history"></i>
+                    <h3>History</h3>
+                    <p>The National Cadet Corps was established in 1948 under the National Cadet Corps Act. It has since grown to become one of the largest uniformed youth organizations in the world.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Vision</h3>
+                    <p>To build a motivated and organized youth leadership that provides the nation with dedicated volunteers in all walks of life and always available for the service of the nation.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Objectives</h3>
+                    <p>To develop character, comradeship, discipline, leadership, secular outlook, spirit of adventure, and ideals of selfless service amongst the youth of the country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our College Unit Section -->
+    <section class="college-unit" id="unit">
+        <div class="container">
+            <h2 class="section-title">Our College Unit</h2>
+            <div class="unit-content">
+                <div class="unit-card">
+                    <h3>2 Haryana Battalion NCC</h3>
+                    <p>Established: 15th August 1965</p>
+                    <p>Affiliation: NIT Kurukshetra</p>
+                    <p>Cadets: 120 (Senior Division)</p>
+                </div>
+                <div class="unit-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="ANO" class="profile-img">
+                        <div>
+                            <h4>Dr. S. Kumar</h4>
+                            <p>Associate NCC Officer</p>
+                        </div>
+                    </div>
+                    <p>With over 15 years of experience in NCC, Dr. Kumar has trained more than 500 cadets, many of whom have joined the armed forces.</p>
+                </div>
+                <div class="unit-card">
+                    <h4>Cadet Leadership</h4>
+                    <ul>
+                        <li>Senior Under Officer: Cadet Rahul Singh</li>
+                        <li>Cadet Under Officer: Cadet Priya Sharma</li>
+                        <li>Company Sergeant Major: Cadet Amit Kumar</li>
+                        <li>Sergeant: Cadet Neha Gupta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities & Events Section -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <h2 class="section-title">Activities & Events</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Training Camp" class="activity-img">
+                    <div class="activity-content">
+                        <h3>Annual Training Camp</h3>
+                        <p>Intensive 10-day camp focusing on drill, weapon training, map reading, and leadership exercises.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Republic Day Parade" class="activity-img">
+                    <div class="activity-content">
+                        <h3>Republic Day Camp</h3>
+                        <p>Selection of best cadets for the prestigious Republic Day Camp in New Delhi.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Adventure Activities" class="activity-img">
+                    <div class="activity-content">
+                        <h3>Adventure Activities</h3>
+                        <p>Trekking, mountaineering, cycling expeditions, and parasailing for cadets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="camps">Camps</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+                <button class="filter-btn" data-filter="social">Social Work</button>
+                <button class="filter-btn" data-filter="competitions">Competitions</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="camps">
+                    <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Camp Activity">
+                </div>
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Drill Training">
+                </div>
+                <div class="gallery-item" data-category="social">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tree Plantation">
+                </div>
+                <div class="gallery-item" data-category="competitions">
+                    <img src="https://images.unsplash.com/photo-1544531585-9847b12c3ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Firing Competition">
+                </div>
+                <div class="gallery-item" data-category="camps">
+                    <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Republic Day Camp">
+                </div>
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Adventure Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>NCC Office, Admin Block<br>NIT Kurukshetra<br>Haryana - 136119</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9876543210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>nccunit@nitkkr.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="footer-logo">
+                    <p>The National Cadet Corps is the youth wing of the Indian Armed Forces. Its motto is "Unity and Discipline".</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About NCC</a></li>
+                        <li><a href="#unit">Our Unit</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">Enrollment</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Achievements</a></li>
+                        <li><a href="#">Events Calendar</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Get In Touch</h3>
+                    <p>NCC Office, Admin Block<br>NIT Kurukshetra<br>Haryana - 136119</p>
+                    <p>Email: nccunit@nitkkr.ac.in</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color:red"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Gallery Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+
+        // Form Submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
