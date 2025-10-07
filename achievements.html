@@ -1,1 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements | NCC College Unit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--navy-blue);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flag-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: -1;
+        }
+        
+        .flag-stripe {
+            flex: 1;
+            opacity: 0.1;
+        }
+        
+        .saffron-stripe {
+            background-color: var(--saffron);
+            animation: wave 15s infinite linear;
+        }
+        
+        .white-stripe {
+            background-color: var(--white);
+            animation: wave 15s infinite linear 0.5s;
+        }
+        
+        .green-stripe {
+            background-color: var(--green);
+            animation: wave 15s infinite linear 1s;
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Achievement Metrics */
+        .achievement-metrics {
+            background-color: var(--gray);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .metric-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--navy-blue);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .metric-icon {
+            font-size: 3rem;
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--saffron);
+            margin-bottom: 10px;
+        }
+        
+        /* Cadet Achievements */
+        .cadet-achievements {
+            background-color: var(--white);
+        }
+        
+        .achievement-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--navy-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .achievement-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .achievement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .achievement-card:hover .achievement-image img {
+            transform: scale(1.1);
+        }
+        
+        .achievement-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--saffron);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .achievement-content {
+            padding: 20px;
+        }
+        
+        .achievement-title {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+        
+        .achievement-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .achievement-meta i {
+            margin-right: 5px;
+            color: var(--navy-blue);
+        }
+        
+        /* Awards Section */
+        .awards-section {
+            background-color: var(--light-blue);
+        }
+        
+        .awards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .award-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .award-icon {
+            font-size: 3rem;
+            color: var(--saffron);
+            margin-bottom: 15px;
+        }
+        
+        .award-name {
+            font-weight: 600;
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+        
+        .award-year {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Alumni Section */
+        .alumni-section {
+            background-color: var(--white);
+        }
+        
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .alumni-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .alumni-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .alumni-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .alumni-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .alumni-card:hover .alumni-image img {
+            transform: scale(1.1);
+        }
+        
+        .alumni-content {
+            padding: 20px;
+        }
+        
+        .alumni-name {
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+        }
+        
+        .alumni-rank {
+            color: var(--saffron);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .alumni-service {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .alumni-service i {
+            color: var(--green);
+        }
+        
+        /* Wall of Honour */
+        .wall-of-honour {
+            background-color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wall-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .honour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .honour-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        
+        .honour-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--saffron);
+        }
+        
+        .honour-image {
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .honour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .honour-content {
+            padding: 15px;
+        }
+        
+        .honour-name {
+            font-weight: 600;
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+        }
+        
+        .honour-achievement {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--saffron);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .achievement-grid, .alumni-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .honour-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .achievement-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NCC College Unit</h1>
+                    <p>Unity and Discipline</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About NCC</a></li>
+                    <li><a href="unit.html">Our Unit</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="achievements.html" class="active">Achievements</a></li>
+                    <li><a href="enrollment.html">Enrollment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="flag-animation">
+            <div class="flag-stripe saffron-stripe"></div>
+            <div class="flag-stripe white-stripe"></div>
+            <div class="flag-stripe green-stripe"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>Wall of Honour</h1>
+            <p>Celebrating Excellence and Achievements of Our Cadets</p>
+        </div>
+    </section>
+
+    <!-- Achievement Metrics -->
+    <section class="achievement-metrics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Legacy of Excellence</h2>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-number">500+</div>
+                    <h3>Cadets Trained</h3>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="metric-number">50+</div>
+                    <h3>Awards Won</h3>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-campground"></i>
+                    </div>
+                    <div class="metric-number">100+</div>
+                    <h3>Camps Organized</h3>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="metric-number">25+</div>
+                    <h3>Defense Officers</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cadet Achievements -->
+    <section class="cadet-achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cadet Achievements</h2>
+            </div>
+            
+            <div class="achievement-tabs">
+                <button class="tab-btn active" data-tab="rdc">Republic Day Camp</button>
+                <button class="tab-btn" data-tab="tsc">Thal Sainik Camp</button>
+                <button class="tab-btn" data-tab="yep">Youth Exchange Program</button>
+            </div>
+            
+            <div class="achievement-grid">
+                <!-- RDC Achievements -->
+                <div class="achievement-card" data-category="rdc">
+                    <div class="achievement-image">
+                        <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cadet Rahul Singh">
+                        <div class="achievement-badge">RDC 2023</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Cadet Rahul Singh</h3>
+                        <div class="achievement-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
+                        </div>
+                        <p>Selected for prestigious Republic Day Camp and awarded Best Cadet in Drill Competition.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-category="rdc">
+                    <div class="achievement-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cadet Priya Sharma">
+                        <div class="achievement-badge">RDC 2022</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Cadet Priya Sharma</h3>
+                        <div class="achievement-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
+                        </div>
+                        <p>Represented unit at RDC and won Gold Medal in Firing Competition.</p>
+                    </div>
+                </div>
+                
+                <!-- TSC Achievements -->
+                <div class="achievement-card" data-category="tsc">
+                    <div class="achievement-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cadet Amit Kumar">
+                        <div class="achievement-badge">TSC 2023</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Cadet Amit Kumar</h3>
+                        <div class="achievement-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Delhi</span>
+                        </div>
+                        <p>Selected for Thal Sainik Camp and secured 2nd position in Obstacle Course.</p>
+                    </div>
+                </div>
+                
+                <!-- YEP Achievements -->
+                <div class="achievement-card" data-category="yep">
+                    <div class="achievement-image">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cadet Neha Gupta">
+                        <div class="achievement-badge">YEP 2022</div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Cadet Neha Gupta</h3>
+                        <div class="achievement-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-map-marker-alt"></i> UK</span>
+                        </div>
+                        <p>Selected for Youth Exchange Program to United Kingdom, representing India.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Awards & Medals</h2>
+            </div>
+            
+            <div class="awards-container">
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="award-name">Best NCC Unit</h3>
+                    <p class="award-year">2023</p>
+                    <p>Directorate Level</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="award-name">Best ANO</h3>
+                    <p class="award-year">2022</p>
+                    <p>Dr. S. Kumar</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="award-name">Inter-Group Championship</h3>
+                    <p class="award-year">2021</p>
+                    <p>Drill Competition</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="award-name">Best Cadet</h3>
+                    <p class="award-year">2020</p>
+                    <p>SD Cadet Rahul</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Section -->
+    <section class="alumni-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Distinguished Alumni</h2>
+            </div>
+            
+            <div class="alumni-grid">
+                <div class="alumni-card">
+                    <div class="alumni-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Captain Rajesh Kumar">
+                    </div>
+                    <div class="alumni-content">
+                        <h3 class="alumni-name">Captain Rajesh Kumar</h3>
+                        <p class="alumni-rank">Indian Army</p>
+                        <div class="alumni-service">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>12 Mechanised Infantry</span>
+                        </div>
+                        <p>Former SUO of our unit, commissioned through NCC Special Entry Scheme.</p>
+                    </div>
+                </div>
+                
+                <div class="alumni-card">
+                    <div class="alumni-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Flight Lieutenant Priya Singh">
+                    </div>
+                    <div class="alumni-content">
+                        <h3 class="alumni-name">Flight Lieutenant Priya Singh</h3>
+                        <p class="alumni-rank">Indian Air Force</p>
+                        <div class="alumni-service">
+                            <i class="fas fa-plane"></i>
+                            <span>Fighter Pilot</span>
+                        </div>
+                        <p>Former JUO, selected through Air Force Academy.</p>
+                    </div>
+                </div>
+                
+                <div class="alumni-card">
+                    <div class="alumni-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lieutenant Commander Amit Sharma">
+                    </div>
+                    <div class="alumni-content">
+                        <h3 class="alumni-name">Lieutenant Commander Amit Sharma</h3>
+                        <p class="alumni-rank">Indian Navy</p>
+                        <div class="alumni-service">
+                            <i class="fas fa-ship"></i>
+                            <span>INS Vikramaditya</span>
+                        </div>
+                        <p>Former CQMS, commissioned through Naval Academy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wall of Honour -->
+    <section class="wall-of-honour">
+        <div class="container wall-container">
+            <div class="section-title">
+                <h2>Wall of Honour</h2>
+            </div>
+            
+            <div class="honour-grid">
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Rohan">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Rohan</h4>
+                        <p class="honour-achievement">Best Cadet 2023</p>
+                    </div>
+                </div>
+                
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Sneha">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Sneha</h4>
+                        <p class="honour-achievement">RDC Contingent 2023</p>
+                    </div>
+                </div>
+                
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Vikas">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Vikas</h4>
+                        <p class="honour-achievement">TSC Selection 2022</p>
+                    </div>
+                </div>
+                
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Anjali">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Anjali</h4>
+                        <p class="honour-achievement">YEP UK 2022</p>
+                    </div>
+                </div>
+                
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Arjun">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Arjun</h4>
+                        <p class="honour-achievement">Best Shooter 2021</p>
+                    </div>
+                </div>
+                
+                <div class="honour-card">
+                    <div class="honour-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cadet Pooja">
+                    </div>
+                    <div class="honour-content">
+                        <h4 class="honour-name">Cadet Pooja</h4>
+                        <p class="honour-achievement">Best Marcher 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NCC College Unit</h3>
+                    <p>Developing character, comradeship, discipline, and a spirit of adventure among the youth of our nation.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">NCC Official Website</a></li>
+                        <li><a href="#">College Website</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> NCC Unit Office, College Campus</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> nccunit@college.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Achievement Tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const achievementCards = document.querySelectorAll('.achievement-card');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const tab = button.getAttribute('data-tab');
+                
+                achievementCards.forEach(card => {
+                    if (tab === 'all' || card.getAttribute('data-category') === tab) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.metric-card, .achievement-card, .award-card, .alumni-card, .honour-card');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check
+        fadeInOnScroll();
+    </script>
+</body>
+</html>
