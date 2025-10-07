@@ -1,1 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | NCC College Unit</title>
+    <meta name="description" content="Explore our NCC College Unit gallery featuring training, camps, social activities, and adventure events. Join NCC for leadership development.">
+    <meta name="keywords" content="NCC College Unit, NCC Gallery, NCC India, Join NCC, NCC Training, NCC Camps">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--navy-blue);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flag-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: -1;
+        }
+        
+        .flag-stripe {
+            flex: 1;
+            opacity: 0.1;
+        }
+        
+        .saffron-stripe {
+            background-color: var(--saffron);
+            animation: wave 15s infinite linear;
+        }
+        
+        .white-stripe {
+            background-color: var(--white);
+            animation: wave 15s infinite linear 0.5s;
+        }
+        
+        .green-stripe {
+            background-color: var(--green);
+            animation: wave 15s infinite linear 1s;
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* AdMob Style Ads */
+        .ad-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .ad-banner {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-blue));
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--white);
+            text-align: center;
+            max-width: 728px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-banner::before {
+            content: 'Ad';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background-color: var(--saffron);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .ad-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .ad-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .ad-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .ad-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .ad-cta {
+            display: inline-block;
+            background-color: var(--saffron);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .ad-cta:hover {
+            background-color: #e6891e;
+        }
+        
+        .ad-image {
+            width: 120px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .ad-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .ad-interstitial {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+        }
+        
+        .ad-interstitial-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .ad-interstitial-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        .ad-interstitial-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .ad-interstitial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .ad-interstitial-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--navy-blue);
+        }
+        
+        .ad-interstitial-description {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .ad-interstitial-cta {
+            display: inline-block;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .ad-interstitial-cta:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        /* Gallery Filters */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--navy-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img, .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            background-color: var(--saffron);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-content img, .lightbox-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-prev, .lightbox-next {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        /* Year Tabs */
+        .year-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .year-tab {
+            padding: 8px 15px;
+            background-color: var(--white);
+            border: 1px solid var(--navy-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .year-tab.active, .year-tab:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        /* Carousel Section */
+        .carousel-section {
+            background-color: var(--light-blue);
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .carousel-prev, .carousel-next {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--navy-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--saffron);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .ad-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ad-text {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .carousel-slide img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-filters, .year-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn, .year-tab {
+                width: 200px;
+                justify-content: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NCC College Unit</h1>
+                    <p>Unity and Discipline</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About NCC</a></li>
+                    <li><a href="unit.html">Our Unit</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="flag-animation">
+            <div class="flag-stripe saffron-stripe"></div>
+            <div class="flag-stripe white-stripe"></div>
+            <div class="flag-stripe green-stripe"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>NCC Gallery</h1>
+            <p>Capturing Moments of Discipline, Adventure, and Service</p>
+        </div>
+    </section>
+
+    <!-- Featured Carousel -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Moments</h2>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="NCC Parade">
+                        <div class="carousel-caption">
+                            <h3>Republic Day Parade Practice</h3>
+                            <p>Cadets preparing for the prestigious Republic Day Camp</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="NCC Training Camp">
+                        <div class="carousel-caption">
+                            <h3>Annual Training Camp</h3>
+                            <p>Cadets during field training exercises</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="NCC Adventure">
+                        <div class="carousel-caption">
+                            <h3>Adventure Training</h3>
+                            <p>Cadets during rock climbing expedition</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <button class="carousel-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="carousel-dots">
+                    <button class="carousel-dot active"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Ad -->
+    <div class="container ad-container">
+        <div class="ad-banner">
+            <div class="ad-content">
+                <div class="ad-text">
+                    <div class="ad-title">Join NCC Today!</div>
+                    <div class="ad-description">Develop leadership skills, discipline, and serve the nation. Enroll now for the upcoming session.</div>
+                    <a href="enrollment.html" class="ad-cta">Learn More</a>
+                </div>
+                <div class="ad-image">
+                    <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Join NCC">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Photo & Video Gallery</h2>
+            </div>
+            
+            <div class="year-tabs">
+                <button class="year-tab active" data-year="all">All Years</button>
+                <button class="year-tab" data-year="2023">2023</button>
+                <button class="year-tab" data-year="2022">2022</button>
+                <button class="year-tab" data-year="2021">2021</button>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All Media
+                </button>
+                <button class="filter-btn" data-filter="camps">
+                    <i class="fas fa-campground"></i> Camps
+                </button>
+                <button class="filter-btn" data-filter="training">
+                    <i class="fas fa-dumbbell"></i> Training
+                </button>
+                <button class="filter-btn" data-filter="social">
+                    <i class="fas fa-hands-helping"></i> Social Activities
+                </button>
+                <button class="filter-btn" data-filter="adventure">
+                    <i class="fas fa-hiking"></i> Adventure
+                </button>
+                <button class="filter-btn" data-filter="videos">
+                    <i class="fas fa-video"></i> Videos
+                </button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Camp Images -->
+                <div class="gallery-item" data-category="camps" data-year="2023">
+                    <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Annual Training Camp">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Camps</span>
+                        <h3 class="gallery-title">Annual Training Camp 2023</h3>
+                        <span class="gallery-date">November 15-25, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="camps" data-year="2022">
+                    <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Republic Day Camp">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Camps</span>
+                        <h3 class="gallery-title">Republic Day Camp</h3>
+                        <span class="gallery-date">January 2022</span>
+                    </div>
+                </div>
+                
+                <!-- Training Images -->
+                <div class="gallery-item" data-category="training" data-year="2023">
+                    <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drill Training">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Training</span>
+                        <h3 class="gallery-title">Drill Practice Session</h3>
+                        <span class="gallery-date">October 2023</span>
+                    </div>
+                </div>
+                
+                <!-- Mid-Gallery Banner Ad -->
+                <div class="ad-container" style="grid-column: 1 / -1;">
+                    <div class="ad-banner">
+                        <div class="ad-content">
+                            <div class="ad-text">
+                                <div class="ad-title">NCC Special Training Program</div>
+                                <div class="ad-description">Advanced leadership and adventure training for selected cadets. Applications open now!</div>
+                                <a href="activities.html" class="ad-cta">View Details</a>
+                            </div>
+                            <div class="ad-image">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="NCC Training">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="training" data-year="2022">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Weapon Training">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Training</span>
+                        <h3 class="gallery-title">Weapon Training</h3>
+                        <span class="gallery-date">March 2022</span>
+                    </div>
+                </div>
+                
+                <!-- Social Activities -->
+                <div class="gallery-item" data-category="social" data-year="2023">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tree Plantation">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Social Activities</span>
+                        <h3 class="gallery-title">Tree Plantation Drive</h3>
+                        <span class="gallery-date">August 2023</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="social" data-year="2022">
+                    <img src="https://images.unsplash.com/photo-1511984804822-e16ba72f5848?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blood Donation">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Social Activities</span>
+                        <h3 class="gallery-title">Blood Donation Camp</h3>
+                        <span class="gallery-date">October 2022</span>
+                    </div>
+                </div>
+                
+                <!-- Adventure -->
+                <div class="gallery-item" data-category="adventure" data-year="2023">
+                    <img src="https://images.unsplash.com/photo-1547036967-23a11d13c4e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trekking">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Adventure</span>
+                        <h3 class="gallery-title">Himalayan Trekking</h3>
+                        <span class="gallery-date">May 2023</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="adventure" data-year="2021">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cycling Expedition">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Adventure</span>
+                        <h3 class="gallery-title">Cycling Expedition</h3>
+                        <span class="gallery-date">December 2021</span>
+                    </div>
+                </div>
+                
+                <!-- Videos -->
+                <div class="gallery-item" data-category="videos" data-year="2023">
+                    <video muted>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Videos</span>
+                        <h3 class="gallery-title">NCC Annual Day Celebration</h3>
+                        <span class="gallery-date">November 2023</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="videos" data-year="2022">
+                    <video muted>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-audience-clapping-and-cheering-438-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Videos</span>
+                        <h3 class="gallery-title">Award Ceremony</h3>
+                        <span class="gallery-date">March 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Banner Ad -->
+    <div class="container ad-container">
+        <div class="ad-banner">
+            <div class="ad-content">
+                <div class="ad-text">
+                    <div class="ad-title">NCC Achievements & Awards</div>
+                    <div class="ad-description">Discover our cadets' remarkable achievements and the honors received by our unit.</div>
+                    <a href="achievements.html" class="ad-cta">View Achievements</a>
+                </div>
+                <div class="ad-image">
+                    <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="NCC Achievements">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interstitial Ad Modal -->
+    <div class="ad-interstitial" id="interstitial-ad">
+        <div class="ad-interstitial-content">
+            <button class="ad-interstitial-close" id="interstitial-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="ad-interstitial-image">
+                <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="NCC Recruitment">
+            </div>
+            <h3 class="ad-interstitial-title">Join the NCC Leadership Program</h3>
+            <p class="ad-interstitial-description">Develop leadership skills, discipline, and serve the nation. Limited seats available for the next batch.</p>
+            <a href="enrollment.html" class="ad-interstitial-cta">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-content" id="lightbox-content">
+            <!-- Content will be inserted here by JavaScript -->
+        </div>
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next" id="lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption">
+            <!-- Caption will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NCC College Unit</h3>
+                    <p>Developing character, comradeship, discipline, and a spirit of adventure among the youth of our nation.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">NCC Official Website</a></li>
+                        <li><a href="#">College Website</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Achievements</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> NCC Unit Office, College Campus</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> nccunit@college.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Gallery Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const yearTabs = document.querySelectorAll('.year-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        // Filter by category
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                const year = document.querySelector('.year-tab.active').getAttribute('data-year');
+                
+                filterGallery(filter, year);
+            });
+        });
+        
+        // Filter by year
+        yearTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                yearTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const year = tab.getAttribute('data-year');
+                const filter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                
+                filterGallery(filter, year);
+            });
+        });
+        
+        function filterGallery(filter, year) {
+            galleryItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const itemYear = item.getAttribute('data-year');
+                
+                const categoryMatch = filter === 'all' || itemCategory === filter;
+                const yearMatch = year === 'all' || itemYear === year;
+                
+                if (categoryMatch && yearMatch) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Carousel Functionality
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+        
+        let currentSlide = 0;
+        const slideCount = carouselSlides.length;
+        
+        function goToSlide(slideIndex) {
+            carouselTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update dots
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+            
+            currentSlide = slideIndex;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            goToSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            goToSlide(currentSlide);
+        }
+        
+        // Event listeners for carousel
+        nextButton.addEventListener('click', nextSlide);
+        prevButton.addEventListener('click', prevSlide);
+        
+        // Dot navigation
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+        
+        // Auto advance carousel
+        setInterval(nextSlide, 5000);
+        
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.getElementById('lightbox-content');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        let currentMediaIndex = 0;
+        let mediaItems = [];
+        
+        // Open lightbox when gallery item is clicked
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // Get all visible items
+                mediaItems = Array.from(galleryItems).filter(item => 
+                    item.style.display !== 'none'
+                );
+                
+                // Find index of clicked item in visible items
+                currentMediaIndex = mediaItems.indexOf(item);
+                
+                openLightbox(currentMediaIndex);
+            });
+        });
+        
+        function openLightbox(index) {
+            const item = mediaItems[index];
+            const media = item.querySelector('img, video');
+            const caption = item.querySelector('.gallery-title').textContent;
+            
+            // Clear previous content
+            lightboxContent.innerHTML = '';
+            
+            // Create new media element
+            if (media.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = media.src;
+                img.alt = media.alt;
+                lightboxContent.appendChild(img);
+            } else if (media.tagName === 'VIDEO') {
+                const video = document.createElement('video');
+                video.src = media.querySelector('source').src;
+                video.controls = true;
+                video.autoplay = true;
+                lightboxContent.appendChild(video);
+            }
+            
+            // Set caption
+            lightboxCaption.textContent = caption;
+            
+            // Show lightbox
+            lightbox.style.display = 'flex';
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Pause any playing video
+            const video = lightboxContent.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+        
+        function nextMedia() {
+            currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
+            openLightbox(currentMediaIndex);
+        }
+        
+        function prevMedia() {
+            currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
+            openLightbox(currentMediaIndex);
+        }
+        
+        // Event listeners for lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextMedia);
+        lightboxPrev.addEventListener('click', prevMedia);
+        
+        // Close lightbox when clicking outside content
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextMedia();
+                } else if (e.key === 'ArrowLeft') {
+                    prevMedia();
+                }
+            }
+        });
+        
+        // Play videos on hover
+        const videoItems = document.querySelectorAll('.gallery-item video');
+        videoItems.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+        
+        // Interstitial Ad Functionality
+        const interstitialAd = document.getElementById('interstitial-ad');
+        const interstitialClose = document.getElementById('interstitial-close');
+        
+        // Show interstitial ad after 5 seconds
+        setTimeout(() => {
+            interstitialAd.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }, 5000);
+        
+        // Close interstitial ad
+        interstitialClose.addEventListener('click', () => {
+            interstitialAd.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close interstitial when clicking outside
+        interstitialAd.addEventListener('click', (e) => {
+            if (e.target === interstitialAd) {
+                interstitialAd.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
