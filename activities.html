@@ -1,1 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities & Events | NCC College Unit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--navy-blue);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flag-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: -1;
+        }
+        
+        .flag-stripe {
+            flex: 1;
+            opacity: 0.1;
+        }
+        
+        .saffron-stripe {
+            background-color: var(--saffron);
+            animation: wave 15s infinite linear;
+        }
+        
+        .white-stripe {
+            background-color: var(--white);
+            animation: wave 15s infinite linear 0.5s;
+        }
+        
+        .green-stripe {
+            background-color: var(--green);
+            animation: wave 15s infinite linear 1s;
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Category Filters */
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--navy-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .activity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+        
+        .activity-content {
+            padding: 20px;
+        }
+        
+        .activity-category {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--light-blue);
+            color: var(--navy-blue);
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .activity-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .activity-meta i {
+            margin-right: 5px;
+            color: var(--navy-blue);
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background-color: var(--gray);
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--navy-blue);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 3px solid var(--navy-blue);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--saffron);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+        
+        /* Calendar Section */
+        .calendar-section {
+            background-color: var(--white);
+        }
+        
+        .calendar-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .calendar-header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-nav button {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #eee;
+        }
+        
+        .calendar-day {
+            background-color: var(--white);
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--navy-blue);
+        }
+        
+        .calendar-date {
+            background-color: var(--white);
+            padding: 10px;
+            text-align: center;
+            min-height: 80px;
+            position: relative;
+        }
+        
+        .calendar-date.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--saffron);
+            border-radius: 50%;
+        }
+        
+        .calendar-date.other-month {
+            color: #ccc;
+        }
+        
+        .calendar-date.today {
+            background-color: var(--light-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--saffron);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::before {
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 50vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .category-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NCC College Unit</h1>
+                    <p>Unity and Discipline</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About NCC</a></li>
+                    <li><a href="unit.html">Our Unit</a></li>
+                    <li><a href="activities.html" class="active">Activities</a></li>
+                    <li><a href="enrollment.html">Enrollment</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="flag-animation">
+            <div class="flag-stripe saffron-stripe"></div>
+            <div class="flag-stripe white-stripe"></div>
+            <div class="flag-stripe green-stripe"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>Activities & Events</h1>
+            <p>Training, Camps, Social Service, and Adventure Activities</p>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Activities</h2>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All Activities
+                </button>
+                <button class="filter-btn" data-filter="training">
+                    <i class="fas fa-dumbbell"></i> Training
+                </button>
+                <button class="filter-btn" data-filter="camps">
+                    <i class="fas fa-campground"></i> Camps
+                </button>
+                <button class="filter-btn" data-filter="social">
+                    <i class="fas fa-hands-helping"></i> Social Service
+                </button>
+                <button class="filter-btn" data-filter="adventure">
+                    <i class="fas fa-hiking"></i> Adventure
+                </button>
+            </div>
+            
+            <div class="activities-grid">
+                <!-- Training Activities -->
+                <div class="activity-card" data-category="training">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drill Training">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Training</span>
+                        <h3>Drill Training</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Every Wednesday</span>
+                            <span><i class="fas fa-map-marker-alt"></i> College Ground</span>
+                        </div>
+                        <p>Regular drill sessions to instill discipline, coordination, and teamwork among cadets through precise movements and formations.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card" data-category="training">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Weapon Training">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Training</span>
+                        <h3>Weapon Training</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Monthly</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Firing Range</span>
+                        </div>
+                        <p>Basic weapon handling and safety training with .22 rifles under expert supervision to develop marksmanship skills.</p>
+                    </div>
+                </div>
+                
+                <!-- Camp Activities -->
+                <div class="activity-card" data-category="camps">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Annual Training Camp">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Camps</span>
+                        <h3>Annual Training Camp (ATC)</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Nov 15-25, 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Army Cantonment</span>
+                        </div>
+                        <p>10-day intensive camp focusing on leadership, field craft, weapon training, and adventure activities under expert guidance.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card" data-category="camps">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Republic Day Camp">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Camps</span>
+                        <h3>Republic Day Camp (RDC)</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Jan 1-29, 2024</span>
+                            <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
+                        </div>
+                        <p>Prestigious camp for selected cadets to participate in Republic Day celebrations and showcase their skills at national level.</p>
+                    </div>
+                </div>
+                
+                <!-- Social Service Activities -->
+                <div class="activity-card" data-category="social">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blood Donation">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Social Service</span>
+                        <h3>Blood Donation Drive</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Oct 2, 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> College Campus</span>
+                        </div>
+                        <p>Annual blood donation camp in collaboration with Red Cross Society to contribute to the national blood bank.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card" data-category="social">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tree Plantation">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Social Service</span>
+                        <h3>Tree Plantation Drive</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Aug 15, 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> College Premises</span>
+                        </div>
+                        <p>Planting 500+ saplings on Independence Day to promote environmental conservation and green campus initiative.</p>
+                    </div>
+                </div>
+                
+                <!-- Adventure Activities -->
+                <div class="activity-card" data-category="adventure">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1547036967-23a11d13c4e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trekking">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Adventure</span>
+                        <h3>Himalayan Trekking</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> May 10-20, 2024</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Himachal Pradesh</span>
+                        </div>
+                        <p>10-day trekking expedition in the Himalayas to develop endurance, team spirit, and appreciation for nature.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card" data-category="adventure">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1511984804822-e16ba72f5848?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cycling Expedition">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-category">Adventure</span>
+                        <h3>Cycling Expedition</h3>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Dec 15-22, 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Rajasthan</span>
+                        </div>
+                        <p>500km cycling expedition across Rajasthan to promote fitness and explore cultural heritage sites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Event Timeline</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">October 2, 2023</div>
+                        <h3>Blood Donation Drive</h3>
+                        <p>Annual blood donation camp in collaboration with Red Cross Society.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 15-25, 2023</div>
+                        <h3>Annual Training Camp</h3>
+                        <p>10-day intensive camp focusing on leadership and field craft.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">December 15-22, 2023</div>
+                        <h3>Cycling Expedition</h3>
+                        <p>500km cycling expedition across Rajasthan.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 1-29, 2024</div>
+                        <h3>Republic Day Camp</h3>
+                        <p>Prestigious camp for selected cadets in New Delhi.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 10-20, 2024</div>
+                        <h3>Himalayan Trekking</h3>
+                        <p>10-day trekking expedition in the Himalayas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Event Calendar</h2>
+            </div>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="current-month">November 2023</h3>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day">Sun</div>
+                    <div class="calendar-day">Mon</div>
+                    <div class="calendar-day">Tue</div>
+                    <div class="calendar-day">Wed</div>
+                    <div class="calendar-day">Thu</div>
+                    <div class="calendar-day">Fri</div>
+                    <div class="calendar-day">Sat</div>
+                    
+                    <!-- Calendar dates will be populated by JavaScript -->
+                    <div id="calendar-dates"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NCC College Unit</h3>
+                    <p>Developing character, comradeship, discipline, and a spirit of adventure among the youth of our nation.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">NCC Official Website</a></li>
+                        <li><a href="#">College Website</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> NCC Unit Office, College Campus</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> nccunit@college.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Activity Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const activityCards = document.querySelectorAll('.activity-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                activityCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Calendar Functionality
+        const currentMonthEl = document.getElementById('current-month');
+        const calendarDatesEl = document.getElementById('calendar-dates');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+        
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+        
+        const months = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        
+        // Events data (month is 0-indexed)
+        const events = [
+            { date: new Date(2023, 9, 2), title: 'Blood Donation Drive' },
+            { date: new Date(2023, 10, 15), title: 'Annual Training Camp' },
+            { date: new Date(2023, 10, 25), title: 'Annual Training Camp Ends' },
+            { date: new Date(2023, 11, 15), title: 'Cycling Expedition' },
+            { date: new Date(2023, 11, 22), title: 'Cycling Expedition Ends' },
+            { date: new Date(2024, 0, 1), title: 'Republic Day Camp' },
+            { date: new Date(2024, 0, 29), title: 'Republic Day Camp Ends' },
+            { date: new Date(2024, 4, 10), title: 'Himalayan Trekking' },
+            { date: new Date(2024, 4, 20), title: 'Himalayan Trekking Ends' }
+        ];
+        
+        function renderCalendar() {
+            // Set current month and year
+            currentMonthEl.textContent = `${months[currentMonth]} ${currentYear}`;
+            
+            // Get first day of month and number of days in month
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            // Clear previous dates
+            calendarDatesEl.innerHTML = '';
+            
+            // Add empty cells for days before first day of month
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'calendar-date other-month';
+                calendarDatesEl.appendChild(emptyCell);
+            }
+            
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateCell = document.createElement('div');
+                dateCell.className = 'calendar-date';
+                dateCell.textContent = day;
+                
+                // Check if current date is today
+                const today = new Date();
+                if (day === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+                    dateCell.classList.add('today');
+                }
+                
+                // Check if date has an event
+                const cellDate = new Date(currentYear, currentMonth, day);
+                const hasEvent = events.some(event => 
+                    event.date.getDate() === cellDate.getDate() &&
+                    event.date.getMonth() === cellDate.getMonth() &&
+                    event.date.getFullYear() === cellDate.getFullYear()
+                );
+                
+                if (hasEvent) {
+                    dateCell.classList.add('has-event');
+                }
+                
+                calendarDatesEl.appendChild(dateCell);
+            }
+        }
+        
+        // Initialize calendar
+        renderCalendar();
+        
+        // Previous month button
+        prevMonthBtn.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar();
+        });
+        
+        // Next month button
+        nextMonthBtn.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.activity-card, .timeline-item, .calendar-container');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check
+        fadeInOnScroll();
+    </script>
+</body>
+</html>
