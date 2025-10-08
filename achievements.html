@@ -6,6 +6,8 @@
     <title>Achievements | NCC College Unit</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4924138039298124/1650596460" crossorigin="anonymous"></script>
     <style>
         :root {
             --saffron: #FF9933;
@@ -531,6 +533,39 @@
             color: #666;
         }
         
+        /* Ad Container Styles */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: var(--gray);
+            border-radius: 10px;
+            min-height: 100px;
+            position: relative;
+        }
+        
+        .ad-container.horizontal {
+            width: 100%;
+        }
+        
+        .ad-container.vertical {
+            width: 300px;
+            margin: 20px auto;
+        }
+        
+        .ad-label {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.7rem;
+            color: #999;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-blue);
@@ -655,6 +690,11 @@
             .honour-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+            
+            .ad-container.vertical {
+                width: 100%;
+                max-width: 300px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -770,6 +810,23 @@
         </div>
     </section>
 
+    <!-- Ad Space 1: Horizontal Banner -->
+    <div class="container">
+        <div class="ad-container horizontal">
+            <span class="ad-label">Advertisement</span>
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4924138039298124"
+                 data-ad-slot="1650596460"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
     <!-- Cadet Achievements -->
     <section class="cadet-achievements">
         <div class="container">
@@ -813,6 +870,21 @@
                         </div>
                         <p>Represented unit at RDC and won Gold Medal in Firing Competition.</p>
                     </div>
+                </div>
+                
+                <!-- Ad Space 2: Vertical Banner (between cards) -->
+                <div class="ad-container vertical">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- Google AdSense Ad Unit -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4924138039298124"
+                         data-ad-slot="1650596460"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
                 
                 <!-- TSC Achievements -->
@@ -896,6 +968,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Ad Space 3: Horizontal Banner -->
+    <div class="container">
+        <div class="ad-container horizontal">
+            <span class="ad-label">Advertisement</span>
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4924138039298124"
+                 data-ad-slot="1650596460"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
 
     <!-- Alumni Section -->
     <section class="alumni-section">
