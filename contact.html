@@ -1,1 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | NCC College Unit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4924138039298124/1650596460" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--navy-blue);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--navy-blue);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy-blue);
+            cursor: pointer;
+        }
+        
+        /* Ad Container Styles */
+        .ad-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .ad-container p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-banner {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+        
+        .ad-rectangle {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+        
+        .ad-label {
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 90px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--green));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy-blue);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 10px;
+            color: var(--navy-blue);
+        }
+        
+        .contact-form {
+            background-color: var(--gray);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--navy-blue);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--saffron);
+            transform: translateY(-2px);
+        }
+        
+        /* Map Section */
+        .map-section {
+            background-color: var(--light-blue);
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--saffron);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .ad-banner {
+                max-width: 468px;
+                height: 60px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .ad-banner {
+                max-width: 320px;
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .ad-banner {
+                max-width: 300px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <div class="logo-text">
+                    <h1>NCC College Unit</h1>
+                    <p>Unity and Discipline</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About NCC</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="enrollment.html">Enrollment</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Top AdSense Banner -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-banner">
+            <!-- AdSense Banner Ad (728x90) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our NCC unit for any queries or information</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            
+            <!-- Middle AdSense Rectangle -->
+            <div class="ad-container">
+                <p class="ad-label">Advertisement</p>
+                <div class="ad-rectangle">
+                    <!-- AdSense Rectangle Ad (300x250) -->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-app-pub-4924138039298124"
+                         data-ad-slot="1650596460"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Address</h3>
+                            <p>NCC Unit Office, Admin Block<br>NIT Kurukshetra<br>Haryana - 136119, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p>+91 98765 43210<br>+91 98765 43211</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>nccunit@nitkkr.ac.in<br>enrollment.ncc@nitkkr.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Middle AdSense Banner -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-banner">
+            <!-- AdSense Banner Ad (728x90) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Us</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3482.366537325786!2d76.81753131508238!3d29.94689978242213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e3f4d8c5c5b5b%3A0x5a9b6e5e5b5e5b5e!2sNIT%20Kurukshetra!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom AdSense Banner -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-banner">
+            <!-- AdSense Banner Ad (728x90) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NCC College Unit</h3>
+                    <p>Developing character, comradeship, discipline, and a spirit of adventure among the youth of our nation.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="enrollment.html">Enrollment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">NCC Official Website</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> NCC Unit Office, College Campus</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> nccunit@college.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NCC College Unit. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Nation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Initialize AdSense ads
+        function initializeAds() {
+            // Push AdSense ads
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+        
+        // Initialize ads when page loads
+        window.addEventListener('load', initializeAds);
+    </script>
+</body>
+</html>
