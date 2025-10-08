@@ -8,6 +8,8 @@
     <meta name="keywords" content="NCC College Unit, NCC Gallery, NCC India, Join NCC, NCC Training, NCC Camps">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4924138039298124" crossorigin="anonymous"></script>
     <style>
         :root {
             --saffron: #FF9933;
@@ -129,6 +131,59 @@
             cursor: pointer;
         }
         
+        /* AdSense Ad Container Styles */
+        .ad-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .ad-container p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-banner {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+        
+        .ad-rectangle {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+        
+        .ad-label {
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
@@ -226,167 +281,6 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-        }
-        
-        /* AdMob Style Ads */
-        .ad-container {
-            margin: 30px 0;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .ad-banner {
-            background: linear-gradient(135deg, var(--navy-blue), var(--dark-blue));
-            border-radius: 10px;
-            padding: 15px;
-            color: var(--white);
-            text-align: center;
-            max-width: 728px;
-            width: 100%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ad-banner::before {
-            content: 'Ad';
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            background-color: var(--saffron);
-            color: var(--white);
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-        
-        .ad-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-        
-        .ad-text {
-            flex: 1;
-            text-align: left;
-        }
-        
-        .ad-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        
-        .ad-description {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-        
-        .ad-cta {
-            display: inline-block;
-            background-color: var(--saffron);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-        
-        .ad-cta:hover {
-            background-color: #e6891e;
-        }
-        
-        .ad-image {
-            width: 120px;
-            height: 90px;
-            border-radius: 8px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        
-        .ad-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .ad-interstitial {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1002;
-        }
-        
-        .ad-interstitial-content {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-        }
-        
-        .ad-interstitial-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--dark-gray);
-        }
-        
-        .ad-interstitial-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-        
-        .ad-interstitial-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .ad-interstitial-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--navy-blue);
-        }
-        
-        .ad-interstitial-description {
-            margin-bottom: 15px;
-            color: var(--dark-gray);
-        }
-        
-        .ad-interstitial-cta {
-            display: inline-block;
-            background-color: var(--navy-blue);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .ad-interstitial-cta:hover {
-            background-color: var(--dark-blue);
         }
         
         /* Gallery Filters */
@@ -488,70 +382,6 @@
         .gallery-date {
             font-size: 0.9rem;
             opacity: 0.9;
-        }
-        
-        /* Lightbox Modal */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-        
-        .lightbox-content img, .lightbox-content video {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 10px;
-        }
-        
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: var(--white);
-            font-size: 2rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        
-        .lightbox-prev, .lightbox-next {
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        .lightbox-caption {
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: var(--white);
         }
         
         /* Year Tabs */
@@ -661,6 +491,70 @@
             background-color: var(--navy-blue);
         }
         
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-content img, .lightbox-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-prev, .lightbox-next {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-blue);
@@ -729,13 +623,9 @@
                 font-size: 1.1rem;
             }
             
-            .ad-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .ad-text {
-                text-align: center;
+            .ad-banner {
+                max-width: 468px;
+                height: 60px;
             }
         }
         
@@ -794,6 +684,11 @@
             .carousel-slide img {
                 height: 300px;
             }
+            
+            .ad-banner {
+                max-width: 320px;
+                height: 50px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -826,6 +721,11 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .ad-banner {
+                max-width: 300px;
+                height: 50px;
+            }
         }
     </style>
 </head>
@@ -856,6 +756,22 @@
             </nav>
         </div>
     </header>
+
+    <!-- Top AdSense Banner -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-banner">
+            <!-- AdSense Banner Ad (728x90) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -920,19 +836,19 @@
         </div>
     </section>
 
-    <!-- Banner Ad -->
-    <div class="container ad-container">
-        <div class="ad-banner">
-            <div class="ad-content">
-                <div class="ad-text">
-                    <div class="ad-title">Join NCC Today!</div>
-                    <div class="ad-description">Develop leadership skills, discipline, and serve the nation. Enroll now for the upcoming session.</div>
-                    <a href="enrollment.html" class="ad-cta">Learn More</a>
-                </div>
-                <div class="ad-image">
-                    <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Join NCC">
-                </div>
-            </div>
+    <!-- Middle AdSense Rectangle -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-rectangle">
+            <!-- AdSense Rectangle Ad (300x250) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 
@@ -1001,19 +917,19 @@
                     </div>
                 </div>
                 
-                <!-- Mid-Gallery Banner Ad -->
+                <!-- Mid-Gallery AdSense Banner -->
                 <div class="ad-container" style="grid-column: 1 / -1;">
+                    <p class="ad-label">Advertisement</p>
                     <div class="ad-banner">
-                        <div class="ad-content">
-                            <div class="ad-text">
-                                <div class="ad-title">NCC Special Training Program</div>
-                                <div class="ad-description">Advanced leadership and adventure training for selected cadets. Applications open now!</div>
-                                <a href="activities.html" class="ad-cta">View Details</a>
-                            </div>
-                            <div class="ad-image">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="NCC Training">
-                            </div>
-                        </div>
+                        <!-- AdSense Banner Ad (728x90) -->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="ca-app-pub-4924138039298124"
+                             data-ad-slot="1650596460"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div>
                 </div>
                 
@@ -1090,34 +1006,19 @@
         </div>
     </section>
 
-    <!-- Bottom Banner Ad -->
-    <div class="container ad-container">
+    <!-- Bottom AdSense Banner -->
+    <div class="ad-container">
+        <p class="ad-label">Advertisement</p>
         <div class="ad-banner">
-            <div class="ad-content">
-                <div class="ad-text">
-                    <div class="ad-title">NCC Achievements & Awards</div>
-                    <div class="ad-description">Discover our cadets' remarkable achievements and the honors received by our unit.</div>
-                    <a href="achievements.html" class="ad-cta">View Achievements</a>
-                </div>
-                <div class="ad-image">
-                    <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="NCC Achievements">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Interstitial Ad Modal -->
-    <div class="ad-interstitial" id="interstitial-ad">
-        <div class="ad-interstitial-content">
-            <button class="ad-interstitial-close" id="interstitial-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="ad-interstitial-image">
-                <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="NCC Recruitment">
-            </div>
-            <h3 class="ad-interstitial-title">Join the NCC Leadership Program</h3>
-            <p class="ad-interstitial-description">Develop leadership skills, discipline, and serve the nation. Limited seats available for the next batch.</p>
-            <a href="enrollment.html" class="ad-interstitial-cta">Apply Now</a>
+            <!-- AdSense Banner Ad (728x90) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-app-pub-4924138039298124"
+                 data-ad-slot="1650596460"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 
@@ -1417,30 +1318,15 @@
                 video.currentTime = 0;
             });
         });
+
+        // Initialize AdSense ads
+        function initializeAds() {
+            // Push AdSense ads
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
         
-        // Interstitial Ad Functionality
-        const interstitialAd = document.getElementById('interstitial-ad');
-        const interstitialClose = document.getElementById('interstitial-close');
-        
-        // Show interstitial ad after 5 seconds
-        setTimeout(() => {
-            interstitialAd.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }, 5000);
-        
-        // Close interstitial ad
-        interstitialClose.addEventListener('click', () => {
-            interstitialAd.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close interstitial when clicking outside
-        interstitialAd.addEventListener('click', (e) => {
-            if (e.target === interstitialAd) {
-                interstitialAd.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
+        // Initialize ads when page loads
+        window.addEventListener('load', initializeAds);
     </script>
 </body>
 </html>
