@@ -15,6 +15,7 @@
             --light-blue: #E6F7FF;
             --dark-gray: #333333;
             --light-gray: #F5F5F5;
+            --medium-gray: #E5E5E5;
         }
         
         * {
@@ -145,6 +146,13 @@
                 var(--green) 66%, var(--green) 100%);
             opacity: 0.1;
             z-index: -1;
+            animation: flagWave 20s infinite linear;
+        }
+        
+        @keyframes flagWave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
         }
         
         .banner-content {
@@ -297,6 +305,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
+            border-top: 4px solid var(--navy-blue);
         }
         
         .about-card:hover {
@@ -368,6 +377,11 @@
             height: 200px;
             width: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .activity-card:hover .activity-img {
+            transform: scale(1.05);
         }
         
         .activity-content {
@@ -426,9 +440,119 @@
             transform: scale(1.1);
         }
         
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+        }
+        
+        /* Enrollment Section */
+        .enrollment {
+            background-color: var(--light-blue);
+        }
+        
+        .enrollment-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .enrollment-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefits-list i {
+            color: var(--green);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Achievements Section */
+        .achievements {
+            background-color: var(--white);
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .achievement-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--saffron);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .achievement-card i {
+            font-size: 3rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
         /* Contact Section */
         .contact {
-            background-color: var(--white);
+            background-color: var(--light-gray);
         }
         
         .contact-content {
@@ -456,32 +580,24 @@
         }
         
         .contact-form {
-            background-color: var(--light-gray);
+            background-color: var(--white);
             padding: 2rem;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-control {
+        .map-container iframe {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+            height: 100%;
+            border: none;
         }
         
         /* Footer */
@@ -659,10 +775,12 @@
                     </div>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About NCC</a></li>
-                        <li><a href="#unit">Our Unit</a></li>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="/NCC-NITKKR/about.html">About NCC</a></li>
+                        <li><a href="/NCC-NITKKR/unit.html">Our Unit</a></li>
+                        <li><a href="/NCC-NITKKR/activities.html">Activities</a></li>
+                        <li><a href="/NCC-NITKKR/enrollment.html">Enrollment</a></li>
+                        <li><a href="/NCC-NITKKR/achievements.html">Achievements</a></li>
+                        <li><a href="/NCC-NITKKR/gallery.html">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -677,9 +795,9 @@
             <h1>National Cadet Corps</h1>
             <p>Unity and Discipline – The Motto of NCC</p>
             <div class="quick-buttons">
-                <a href="#about" class="btn">About NCC</a>
+                <a href="/NCC-NITKKR/about.html" class="btn">About NCC</a>
                 <a href="/NCC-NITKKR/enrollment.html" class="btn btn-outline">Enroll Now</a>
-                <a href="#activities" class="btn btn-outline">Events</a>
+                <a href="/NCC-NITKKR/activities.html" class="btn btn-outline">Events</a>
                 <a href="#contact" class="btn btn-outline">Contact Us</a>
             </div>
         </div>
@@ -802,6 +920,111 @@
         </div>
     </section>
 
+    <!-- Enrollment Section -->
+    <section class="enrollment" id="enrollment">
+        <div class="container">
+            <h2 class="section-title">Enrollment</h2>
+            <div class="enrollment-content">
+                <div class="enrollment-form">
+                    <h3>Enquiry Form</h3>
+                    <form id="enrollmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <select id="course" class="form-control" required>
+                                <option value="">Select Course</option>
+                                <option value="btech">B.Tech</option>
+                                <option value="mtech">M.Tech</option>
+                                <option value="bsc">B.Sc</option>
+                                <option value="msc">M.Sc</option>
+                                <option value="ba">B.A</option>
+                                <option value="ma">M.A</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year of Study</label>
+                            <select id="year" class="form-control" required>
+                                <option value="">Select Year</option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Enquiry</button>
+                    </form>
+                </div>
+                <div class="enrollment-info">
+                    <h3>Eligibility & Benefits</h3>
+                    <div class="benefits">
+                        <h4>Eligibility Criteria:</h4>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check-circle"></i> Indian citizen</li>
+                            <li><i class="fas fa-check-circle"></i> Age between 13-26 years</li>
+                            <li><i class="fas fa-check-circle"></i> Enrolled as a student in an educational institution</li>
+                            <li><i class="fas fa-check-circle"></i> Medically fit</li>
+                        </ul>
+                        
+                        <h4>Benefits of Joining NCC:</h4>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-award"></i> NCC 'A', 'B', and 'C' Certificates</li>
+                            <li><i class="fas fa-graduation-cap"></i> Grace marks in various competitive exams</li>
+                            <li><i class="fas fa-briefcase"></i> Preference in defense services recruitment</li>
+                            <li><i class="fas fa-plane"></i> Opportunities for youth exchange programs</li>
+                            <li><i class="fas fa-medal"></i> Scholarships and financial assistance</li>
+                        </ul>
+                        
+                        <a href="#" class="btn" style="margin-top: 20px;">Download Enrollment Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Republic Day Camp</h3>
+                    <p>15 cadets selected for Republic Day Camp in the last 5 years</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Thal Sainik Camp</h3>
+                    <p>8 cadets represented our unit at Thal Sainik Camp with distinction</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Youth Exchange Program</h3>
+                    <p>3 cadets selected for International Youth Exchange Program</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Defense Services</h3>
+                    <p>Over 25 alumni serving in Indian Armed Forces</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
@@ -816,21 +1039,39 @@
             <div class="gallery-grid">
                 <div class="gallery-item" data-category="camps">
                     <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Camp Activity">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="training">
                     <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Drill Training">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="social">
                     <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tree Plantation">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="competitions">
                     <img src="https://images.unsplash.com/photo-1544531585-9847b12c3ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Firing Competition">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="camps">
                     <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Republic Day Camp">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="training">
                     <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Adventure Training">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -900,6 +1141,9 @@
                     </form>
                 </div>
             </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3482.366537325786!2d76.81753131508238!3d29.94689978242213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e3f4d8c5c5b5b%3A0x5a9b6e5e5b5e5b5e!2sNIT%20Kurukshetra!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
@@ -918,17 +1162,17 @@
                         <li><a href="#about">About NCC</a></li>
                         <li><a href="#unit">Our Unit</a></li>
                         <li><a href="#activities">Activities</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#enrollment">Enrollment</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Important Links</h3>
                     <ul>
-                        <li><a href="#">Enrollment</a></li>
                         <li><a href="#">Downloads</a></li>
                         <li><a href="#">Achievements</a></li>
                         <li><a href="#">Events Calendar</a></li>
                         <li><a href="#">FAQ</a></li>
+                        <li><a href="#">NCC Official Website</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -995,6 +1239,13 @@
         document.querySelector('.contact-form form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Enrollment Form Submission
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in NCC! We will contact you soon.');
             this.reset();
         });
     </script>
