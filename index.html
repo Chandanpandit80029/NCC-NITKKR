@@ -123,7 +123,7 @@
             position: relative;
             height: 80vh;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+                        url('IMG_1771.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -775,13 +775,13 @@
                     </div>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About NCC</a></li>
-                        <li><a href="#unit">Our Unit</a></li>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#enrollment">Enrollment</a></li>
-                        <li><a href="#achievements">Achievements</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="#unit.html">Our Unit</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="enrollment.html">Enrollment</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -795,10 +795,10 @@
             <h1>National Cadet Corps</h1>
             <p>Unity and Discipline – The Motto of NCC</p>
             <div class="quick-buttons">
-                <a href="#about" class="btn">About NCC</a>
-                <a href="#enrollment" class="btn btn-outline">Enroll Now</a>
-                <a href="#activities" class="btn btn-outline">Events</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
+                <a href="about.html" class="btn">About NCC</a>
+                <a href="enrollment.html" class="btn btn-outline">Enroll Now</a>
+                <a href="activities.html" class="btn btn-outline">Events</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
             </div>
         </div>
     </section>
@@ -1158,11 +1158,11 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About NCC</a></li>
-                        <li><a href="#unit">Our Unit</a></li>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#enrollment">Enrollment</a></li>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About NCC</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="enrollment.html">Enrollment</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1218,16 +1218,18 @@
         });
 
         // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 const targetSection = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
                 });
                 
                 // Close mobile menu if open
