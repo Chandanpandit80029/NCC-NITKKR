@@ -766,7 +766,7 @@
                     <img src="Untitled_design-removebg-preview.png" alt="NCC Logo" class="logo">
                     <div class="college-name">
                         <h2>NCC NITKKR</h2>
-                        <p>Unity and Discipline</p>
+                       
                     </div>
                 </div>
                 <nav>
@@ -1190,14 +1190,8 @@
 
     <script>
         // Mobile Menu Toggle
-       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
         });
 
         // Gallery Filter
@@ -1224,31 +1218,26 @@
         });
 
         // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a, .btn[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                if(targetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
+                const targetSection = document.querySelector(targetId);
+                
+                if(targetSection) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 90,
+                        top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
                 }
             });
         });
-                
-                // Close mobile menu if open
-               document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
         // Form Submission
         document.querySelector('.contact-form form').addEventListener('submit', function(e) {
             e.preventDefault();
