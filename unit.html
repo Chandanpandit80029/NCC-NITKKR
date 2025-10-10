@@ -10,14 +10,14 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4924138039298124" crossorigin="anonymous"></script>
     <style>
         :root {
-          --saffron: #FF9933;
+            --saffron: #FF9933;
             --white: #FFFFFF;
             --green: #138808;
             --navy-blue: #000080;
             --light-blue: #E6F7FF;
+            --dark-blue: #001F3F;
+            --gray: #F5F5F5;
             --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-            --medium-gray: #E5E5E5;
         }
         
         * {
@@ -37,29 +37,30 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            margin-bottom: 1rem;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         /* Header Styles */
         header {
-             background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
-            padding: 1rem 0;
-            position: sticky;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
         
         .logo-container {
@@ -89,7 +90,7 @@
         }
         
         nav ul li {
-            margin-left: 1.5px;
+            margin-left: 25px;
         }
         
         nav ul li a {
@@ -184,7 +185,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('IMG_1771.jpg);
+                        url('IMG_1771.jpg');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -498,85 +499,61 @@
         
         /* Footer */
         footer {
-            background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
-            padding: 3rem 0 1rem;
-            color: var(--dark-gray);
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
         }
         
-        .footer-content {
+        .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
-        .footer-logo {
-            height: 60px;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links h3 {
-            margin-bottom: 1.5rem;
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             position: relative;
+            padding-bottom: 10px;
         }
         
-        .footer-links h3::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
-            width: 40px;
+            width: 50px;
             height: 2px;
-            background-color: var(--navy-blue);
-            bottom: -8px;
+            background-color: var(--saffron);
+            bottom: 0;
             left: 0;
         }
         
-        .footer-links ul {
+        .footer-col ul {
             list-style: none;
         }
         
-        .footer-links ul li {
-            margin-bottom: 0.8rem;
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
         
-        .footer-links ul li a {
+        .footer-col ul li a {
+            color: #ccc;
             text-decoration: none;
-            color: var(--dark-gray);
             transition: color 0.3s;
         }
         
-        .footer-links ul li a:hover {
-            color: var(--navy-blue);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--navy-blue);
-            color: var(--white);
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--saffron);
-            transform: translateY(-5px);
+        .footer-col ul li a:hover {
+            color: var(--saffron);
+            padding-left: 5px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
         }
-        
         
         /* Responsive Styles */
         @media (max-width: 992px) {
@@ -681,9 +658,9 @@
     <header>
         <div class="container header-container">
             <div class="logo-container">
-                <img src="Untitled_design-removebg-preview.png" class="logo">
+                <img src="Untitled_design-removebg-preview.png" alt="NCC Logo" class="logo">
                 <div class="logo-text">
-                    <h1>NCC College Unit</h1>
+                    <h1>NCC NITKKR</h1>
                     <p>Unity and Discipline</p>
                 </div>
             </div>
