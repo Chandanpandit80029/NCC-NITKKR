@@ -1224,19 +1224,22 @@
         });
 
         // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                const targetSection = document.querySelector(targetId);
                 
-                if (targetSection) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
                     window.scrollTo({
-                        top: targetSection.offsetTop - 80,
+                        top: targetElement.offsetTop - 90,
                         behavior: 'smooth'
-                });
+                    });
+                }
+            });
+        });
                 
                 // Close mobile menu if open
                document.querySelectorAll('nav ul li a').forEach(link => {
