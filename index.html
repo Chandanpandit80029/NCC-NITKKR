@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-          --saffron: #FF9933;
+        :root {
+            --saffron: #FF9933;
             --white: #FFFFFF;
             --green: #138808;
             --navy-blue: #000080;
@@ -65,8 +66,8 @@
         }
         
         .logo {
-            height: 100px;
-            margin-right: 25px;
+            height: 70px;
+            margin-right: 15px;
         }
         
         .college-name {
@@ -122,7 +123,7 @@
             position: relative;
             height: 80vh;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                         url('IMG_1771.jpg');
+                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -762,24 +763,26 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <img src="Untitled_design-removebg-preview.png" alt="NCC Logo" class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
                     <div class="college-name">
-                        <h2>NCC NITKKR</h2>
+                        <h2>NCC College Unit</h2>
+                        <p>Unity and Discipline</p>
                     </div>
                 </div>
-             <nav>
+                <nav>
                     <div class="mobile-menu">
                         <i class="fas fa-bars"></i>
                     </div>
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About NCC</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
                         <li><a href="activities.html">Activities</a></li>
                         <li><a href="achievements.html">Achievements</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="enrollment.html">Enrollment</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="unit.html">Our unit</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -793,9 +796,9 @@
             <h1>National Cadet Corps</h1>
             <p>Unity and Discipline – The Motto of NCC</p>
             <div class="quick-buttons">
-                <a href="/NCC-NITKKR/about.html" class="btn">About NCC</a>
-                <a href="/NCC-NITKKR/enrollment.html" class="btn btn-outline">Enroll Now</a>
-                <a href="/NCC-NITKKR/activities.html" class="btn btn-outline">Events</a>
+                <a href="#about" class="btn">About NCC</a>
+                <a href="#enrollment" class="btn btn-outline">Enroll Now</a>
+                <a href="#activities" class="btn btn-outline">Events</a>
                 <a href="#contact" class="btn btn-outline">Contact Us</a>
             </div>
         </div>
@@ -1158,7 +1161,8 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About NCC</a></li>
-                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="unit.html">Our Unit</a></li>
+                       <li><a href="activities.html">Activities</a></li>
                         <li><a href="achievements.html">Achievements</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
@@ -1166,9 +1170,9 @@
                 <div class="footer-links">
                     <h3>Important Links</h3>
                     <ul>
+                        <li><a href="enrollment.html">Enrollment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="#">Downloads</a></li>
-                        <li><a href="#">Achievements</a></li>
-                        <li><a href="#">Events Calendar</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">NCC Official Website</a></li>
                     </ul>
@@ -1187,7 +1191,7 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+       // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
@@ -1216,7 +1220,7 @@
         });
 
         // Smooth Scrolling for Navigation Links
-         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
@@ -1230,22 +1234,227 @@
                         top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Close mobile menu if open
-             document.querySelector('nav ul').classList.remove('show');
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });// Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
                 }
             });
         });
+                
+                // Close mobile menu if open
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
 
-        // Form Submission
-         document.querySelector('.contact-form form')?.addEventListener('submit', function(e) {
+      // Form Submissions
+        document.querySelector('.contact-form form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
 
         // Enrollment Form Submission
-        document.getElementById('enrollmentForm')?.addEventListener('submit', function(e) {
+         document.getElementById('enrollmentForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your interest in NCC! We will contact you soon.');
             this.reset();
