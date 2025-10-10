@@ -70,8 +70,8 @@
         }
         
         .logo {
-            height: 70px;
-            margin-right: 15px;
+            height: 100px;
+            margin-right: 25px;
         }
         
         .college-name {
@@ -125,7 +125,7 @@
         /* Enrollment Hero Section */
         .enrollment-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+                         url('IMG_1771.jpg');
             background-size: cover;
             background-position: center;
             padding: 5rem 0;
@@ -665,10 +665,10 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                     <img src="Untitled_design-removebg-preview.png" alt="NCC Logo" class="logo">
                     <div class="college-name">
-                        <h2>NCC College Unit</h2>
-                        <p>Unity and Discipline</p>
+                        <h2>NCC NITKKR</h2>
+                       
                     </div>
                 </div>
                 <nav>
@@ -1037,7 +1037,7 @@
                 <div class="footer-links">
                     <h3>Important Links</h3>
                     <ul>
-                        <li><a href="#eligibility">Eligibility</a></li>
+                        <li><a href="eligibility.html">Eligibility</a></li>
                         <li><a href="#downloads">Downloads</a></li>
                         <li><a href="achievements.html">Achievements</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
@@ -1105,16 +1105,16 @@
         });
 
         // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a, .btn[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetSection = document.querySelector(targetId);
                 
-                if(targetSection) {
+                if (targetSection) {
                     window.scrollTo({
                         top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
