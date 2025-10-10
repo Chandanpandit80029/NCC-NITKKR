@@ -37,30 +37,29 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
+            margin-bottom: 1rem;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
         }
         
         /* Header Styles */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
+             background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
+            padding: 1rem 0;
+            position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
         
         .logo-container {
@@ -69,8 +68,8 @@
         }
         
         .logo {
-            height: 60px;
-            margin-right: 15px;
+            height: 100px;
+            margin-right: 25px;
         }
         
         .logo-text h1 {
@@ -90,7 +89,7 @@
         }
         
         nav ul li {
-            margin-left: 25px;
+            margin-left: 1.5px;
         }
         
         nav ul li a {
@@ -185,7 +184,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1580136579312-94651dfd596d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+                        url('IMG_1771.jpg);
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -499,61 +498,85 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 60px 0 20px;
+            background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
+            padding: 3rem 0 1rem;
+            color: var(--dark-gray);
         }
         
-        .footer-container {
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
         }
         
-        .footer-col h3::after {
+        .footer-links h3::after {
             content: '';
             position: absolute;
-            width: 50px;
+            width: 40px;
             height: 2px;
-            background-color: var(--saffron);
-            bottom: 0;
+            background-color: var(--navy-blue);
+            bottom: -8px;
             left: 0;
         }
         
-        .footer-col ul {
+        .footer-links ul {
             list-style: none;
         }
         
-        .footer-col ul li {
-            margin-bottom: 10px;
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
         }
         
-        .footer-col ul li a {
-            color: #ccc;
+        .footer-links ul li a {
             text-decoration: none;
+            color: var(--dark-gray);
             transition: color 0.3s;
         }
         
-        .footer-col ul li a:hover {
-            color: var(--saffron);
-            padding-left: 5px;
+        .footer-links ul li a:hover {
+            color: var(--navy-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--saffron);
+            transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #ccc;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
+        
         
         /* Responsive Styles */
         @media (max-width: 992px) {
@@ -658,7 +681,7 @@
     <header>
         <div class="container header-container">
             <div class="logo-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/National_Cadet_Corps_India_Logo.svg/1200px-National_Cadet_Corps_India_Logo.svg.png" alt="NCC Logo" class="logo">
+                <img src="Untitled_design-removebg-preview.png" class="logo">
                 <div class="logo-text">
                     <h1>NCC College Unit</h1>
                     <p>Unity and Discipline</p>
